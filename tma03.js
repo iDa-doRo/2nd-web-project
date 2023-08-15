@@ -1,4 +1,4 @@
-/* TMA03 Erehwon Diary Demonstration */
+/* Diary Demonstration */
 
 // Execute in strict mode to prevent some common mistakes
 "use strict";

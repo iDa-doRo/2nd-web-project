@@ -1,0 +1,152 @@
+/* TMA03 Erehwon Diary Demonstration */
+
+/* Stop page getting too wide to easily navigate */
+body {
+	max-width: 90rem;
+  	margin-left: auto;
+  	margin-right: auto;
+  	padding: 0.5rem;
+  	}
+
+main {
+    /* Apply style rules to the diary container here? */ 
+    display: grid;
+    grid-gap: 0.5rem;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+			
+}
+
+section {
+    /* To make sizing easier, include borders or padding in width */
+    box-sizing: border-box;
+    padding: 0.3rem;  
+
+
+    /* Set a limit on entry widths? */
+    max-width: 100rem;
+}
+
+section.entry {
+    background-color: #e8deeb;
+    border-style: solid;
+    border-color: white;
+    /* This allows us to position each delete button */
+    position: relative;
+    /* Set a limit on entry height */
+    max-height: 8rem;
+}
+
+/* Style every second entry differently */
+section.entry:nth-child(2n) {
+    background-color: #DEEBE8;
+}
+
+/* Style every fourth entry differently */
+section.entry:nth-child(4n) {
+    background-color: #ebe8de;
+}
+
+section.entry button {
+    /* Fix size of delete buttons */
+    height: 1.5rem;
+    width: 1.5rem;
+    /* Position delete buttons to the top-right of their container */
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* Fade out delete buttons when not using them */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+section.entry:hover button,
+section.entry button:focus {
+    /* Fade in delete buttons when you hover over an entry 
+     or focus on a button (e.g. tab with keyboard) */
+    opacity: 1;
+}
+
+section.entry textarea {
+    /* Use a variable-width font */
+    font-family: sans-serif;
+  	font-size: 1rem;
+     /* Make text areas fill their container */
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    /* To make sizing easier, include borders or padding in width */
+    box-sizing: border-box;
+    /* Allow scrolling using keyboard only */
+    overflow: hidden;
+}
+
+/* Make image entries responsive */
+section.entry img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (pointer: coarse) {
+    /* Do not fade delete button on touch screen (no hover) */
+    section.entry button {
+        opacity: 1;
+    }
+
+    section.entry textarea {
+        /* Stop text area going behind delete button if not faded */
+        padding-right: 1.5rem;
+        /* Allow scrolling with finger */
+        overflow: scroll;
+    }
+}
+
+section.button button {
+    /* Make Add entry and Add photo buttons fill their container */    
+    width: 100%;
+    height: auto;
+    /* Do not add border to width (else it will be over 100%) */
+    box-sizing: border-box;
+}
+
+/* Hide the image file input (use JavaScript to click it instead) */
+section#image input {
+    display: none;
+}
+
+/* Style page heading */
+h1 {
+    font-size: 1.4rem;
+    /* Reduce gap before/after headings to make things a bit neater */
+    margin: 0.25rem 0;
+}
+
+/* Arrange page width for different viewports */
+@media screen and (max-width: 70rem) {
+  main {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 50rem) {
+  main {
+    grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 30rem) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+ 
+@media screen and (max-width: 17rem) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+

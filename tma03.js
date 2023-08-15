@@ -14,8 +14,6 @@ function makeDiaryItem(type, data) {
     return JSON.stringify(itemObject);
 }
 
-/* Demonstration code removed here. */
-
 /**
  * Add a section to the page containing the given element
  * @param itemKey Key of item in local storage
@@ -50,7 +48,7 @@ function addSection(itemKey, childElement) {
         // Remove the section from the page
         sectionElement.parentNode.removeChild(sectionElement);
 
-        // TODO: Q1(c)(ii)
+        
         // Remove the item from local storage by key
         localStorage.removeItem(itemKey);
     }
@@ -108,7 +106,7 @@ function addTextEntry(itemKey, initialText, isNewEntry) {
             textElement,
         });
 
-       /* // TODO: Q1(c)(iii) Task 1 of 2*/
+       
         // Save the text entry:
         // ...get the textarea element's current value
         var textItem, textData;
@@ -118,7 +116,7 @@ function addTextEntry(itemKey, initialText, isNewEntry) {
         // ...store the item in local storage using the given key
         localStorage.setItem(itemKey, textItem);
     }
-    // TODO: Q1(c)(iii) Task 2 of 2
+    
     // Connect the saveEntry event listener to the textarea element 'change' event
     addEventListener("change", saveEntry);
 }
@@ -179,7 +177,7 @@ function processFile(changeEvent) {
 	        var itemKey = "diary" + Date.now();
 	        addImageEntry(itemKey, dataUrl);
 	
-	        // TODO: Q1(c)(iv) Task 1 of 2
+	       
 	        // Make an image item using the given url
 	        var imageItem;
 	        imageItem = makeDiaryItem("image", dataUrl);
@@ -191,7 +189,7 @@ function processFile(changeEvent) {
 	        // Add a 'dummy' image entry
     		/*addImage(window.DUMMY_DATA_URL);*/
 	        
-            // TODO: Q1(c)(iv) Task 2 of 2
+           
 		    // Complete this function to read a file when it is selected:
 	       	var inputElement = event.target;
 			var file = inputElement.files[0];
